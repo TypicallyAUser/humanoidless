@@ -1,0 +1,1075 @@
+local redbull=([[
+local NoVel=false
+
+game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.Players.LocalPlayer.Character
+repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+if RunningHUMLESS then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Main"))().Notification("Humanoidless.","ur currently already running the funny. just say .resume if u havent")
+	return
+end
+
+if _G.typicalcool ~= true then
+    _G.typicalcool = true
+    setfflag("ObeyTheSimLimit", "False")
+    game:GetService("RunService").Stepped:Connect(function()
+       workspace.FallenPartsDestroyHeight = 0/0
+       settings().Physics.AllowSleep = false
+       game:GetService("Players").LocalPlayer.ReplicationFocus = workspace
+       settings().Physics.ThrottleAdjustTime = 6 - math.huge
+        setsimulationradius(math.huge)
+    end)
+    game:GetService("RunService").Heartbeat:Connect(function()
+       workspace.FallenPartsDestroyHeight = 0/0
+       settings().Physics.AllowSleep = false
+       game:GetService("Players").LocalPlayer.ReplicationFocus = workspace
+       settings().Physics.ThrottleAdjustTime = 6 - math.huge
+        setsimulationradius(math.huge)
+    end)
+    print("Net executed")
+end
+
+setfpscap(0)
+
+getgenv().RunningHUMLESS=true
+
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local Frame_3 = Instance.new("Frame")
+local Frame_4 = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local TextButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIPadding = Instance.new("UIPadding")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Stend = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local rj = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(5, 42, 44)
+Frame.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(0, 272, 0, 198)
+
+local UIS = game:GetService("UserInputService")
+function dragify(Frame)
+	dragToggle = nil
+	local dragSpeed = 0
+	dragInput = nil
+	dragStart = nil
+	local dragPos = nil
+	function updateInput(input)
+		local Delta = input.Position - dragStart
+		local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	end
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	Frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if input == dragInput and dragToggle then
+			updateInput(input)
+		end
+	end)
+end
+
+dragify(Frame)
+
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Frame
+
+Frame_2.Parent = Frame
+Frame_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame_2.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Frame_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame_2.Size = UDim2.new(1, 2, 1, 2)
+Frame_2.ZIndex = 0
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = Frame_2
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(1, 0, 0, 30)
+TextLabel.Font = Enum.Font.Code
+TextLabel.Text = " Humanoidless"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame_3.Parent = TextLabel
+Frame_3.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0, 0, 1, 0)
+Frame_3.Size = UDim2.new(1, 0, 0, 1)
+
+Frame_4.Parent = TextLabel
+Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_4.BackgroundTransparency = 1.000
+Frame_4.Position = UDim2.new(0, 0, 1.10000002, 0)
+Frame_4.Size = UDim2.new(0, 272, 0, 132)
+
+UIListLayout.Parent = Frame_4
+UIListLayout.Padding = UDim.new(0, 5)
+
+TextButton.Parent = Frame_4
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(0, 262, 0, 26)
+TextButton.AutoButtonColor = false
+TextButton.Font = Enum.Font.Code
+TextButton.Text = "Stop"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 14.000
+
+UICorner_3.CornerRadius = UDim.new(0, 5)
+UICorner_3.Parent = TextButton
+
+UIPadding.Parent = Frame_4
+UIPadding.PaddingBottom = UDim.new(0, 5)
+UIPadding.PaddingLeft = UDim.new(0, 5)
+UIPadding.PaddingRight = UDim.new(0, 5)
+UIPadding.PaddingTop = UDim.new(0, 5)
+
+TextButton_2.Parent = Frame_4
+TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Size = UDim2.new(0, 262, 0, 26)
+TextButton_2.AutoButtonColor = false
+TextButton_2.Font = Enum.Font.Code
+TextButton_2.Text = "Resume"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextSize = 14.000
+
+UICorner_4.CornerRadius = UDim.new(0, 5)
+UICorner_4.Parent = TextButton_2
+
+TextButton_3.Parent = Frame_4
+TextButton_3.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Size = UDim2.new(0, 262, 0, 26)
+TextButton_3.AutoButtonColor = false
+TextButton_3.Font = Enum.Font.Code
+TextButton_3.Text = "New Rig"
+TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.TextSize = 14.000
+
+UICorner_5.CornerRadius = UDim.new(0, 5)
+UICorner_5.Parent = TextButton_3
+
+Stend.Name = "Stend"
+Stend.Parent = Frame_4
+Stend.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+Stend.BorderSizePixel = 0
+Stend.Size = UDim2.new(0, 262, 0, 26)
+Stend.AutoButtonColor = false
+Stend.Font = Enum.Font.Code
+Stend.Text = "End"
+Stend.TextColor3 = Color3.fromRGB(255, 255, 255)
+Stend.TextSize = 14.000
+
+UICorner_6.CornerRadius = UDim.new(0, 5)
+UICorner_6.Parent = Stend
+
+TextLabel_2.Parent = TextLabel
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.0183823537, 0, 6.63333321, 0)
+TextLabel_2.Size = UDim2.new(0, 262, 0, 21)
+TextLabel_2.Font = Enum.Font.Code
+TextLabel_2.Text = "made by typicalusername#1444"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+rj.Name = "rj"
+rj.Parent = TextLabel
+rj.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+rj.BorderSizePixel = 0
+rj.Position = UDim2.new(0.272058815, 0, 5.4666667, 0)
+rj.Size = UDim2.new(0, 124, 0, 26)
+rj.AutoButtonColor = false
+rj.Font = Enum.Font.Code
+rj.Text = "Rejoin"
+rj.TextColor3 = Color3.fromRGB(255, 255, 255)
+rj.TextSize = 14.000
+
+UICorner_7.CornerRadius = UDim.new(0, 5)
+UICorner_7.Parent = rj
+
+TextLabel_3.Parent = TextLabel
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.753676414, 0, 0.166666508, 0)
+TextLabel_3.Size = UDim2.new(0, 62, 0, 19)
+TextLabel_3.Font = Enum.Font.Code
+TextLabel_3.Text = "FPS: fps"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function ZJXPL_fake_script() -- TextLabel_3.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_3)
+
+	game:GetService("RunService").RenderStepped:Connect(function(TimeBetween)
+		local FPS = math.floor(1/TimeBetween)
+		script.Parent.Text = "FPS:"..FPS
+	end)
+end
+coroutine.wrap(ZJXPL_fake_script)()
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Main"))()
+Library.Notification("Humanoidless.","running humanoidless. have fun!\nfalling is easy but it just comes back")
+
+local Anims = loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Animations"))().R6
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+--Library.Net() -- for stability within the reanimation
+mybooty=false
+local player=game.Players.LocalPlayer
+local coolnesssss=player.Character
+local loops={}
+player.Character.Archivable=true
+
+local camera=workspace.CurrentCamera
+local CurrentCFrame = camera.CFrame
+
+local dummy=player.Character:Clone()
+dummy.Parent=workspace
+dummy.Head.face.Transparency=1
+dummy.Name="balls"
+for i,v in pairs(dummy:GetChildren()) do
+	if v:IsA("Accessory") then
+		v.Handle.Transparency=1
+	end
+	if v:IsA("BasePart") then
+		v.Transparency=1
+	end
+end
+local backupDummy=dummy:Clone()
+
+function disconnect()
+	for i,v in pairs(loops) do
+		v:Disconnect()
+		print("dis")
+	end
+	loops=nil
+	loops={}
+end
+
+function coolness()
+	spawn(function()
+		while game.RunService.RenderStepped:wait() do
+			if mybooty then break end
+
+			workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+		end
+	end)
+	while game.RunService.RenderStepped:wait() do
+		if mybooty==true then 
+			disconnect() 
+			print("e")
+			break 
+		end
+		repeat CurrentCFrame=workspace.Camera.CFrame game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name ==game.Players.LocalPlayer.Name
+
+		repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+		repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+		Reanimate()
+		game.RunService.RenderStepped:wait()
+
+		workspace.Camera.CameraType=Enum.CameraType.Scriptable 
+		game.RunService.RenderStepped:wait()
+		workspace.CurrentCamera.CFrame=CurrentCFrame
+		game.RunService.RenderStepped:wait()
+		workspace.Camera.CameraType=Enum.CameraType.Custom
+	end
+end
+
+function CameraSet()
+	if player.Character.Name~=player.Name then
+		original_CF = camera.CFrame
+		print("cool")
+	end
+end
+-- Vector3.new(Dummy["HumanoidRootPart"].CFrame.LookVector.X * 40, Dummy["HumanoidRootPart"].AssemblyLinearVelocity.Y * 5, Dummy["HumanoidRootPart"].CFrame.LookVector.Z * 40)
+function Reanimate()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+
+	disconnect()
+	local funny=player.Character
+	player.Character.Humanoid:remove()
+	Library.Noclip(player.Character)
+	funny.Parent=dummy
+
+	function CF(Instance_,Instance2)
+		Instance_:BreakJoints()
+		local pjcrenshaw
+		--table.insert(loops,
+			pjcrenshaw=game.RunService.Heartbeat:Connect(function()
+				if not Instance_ then
+					pjcrenshaw:Disconnect()
+				end
+				Instance_.CFrame = Instance2.CFrame
+					Instance_.Velocity=Vector3.new()
+			end)
+	end
+
+	for i,v in pairs(dummy:GetChildren()) do
+		if v:IsA("Accessory") then
+			spawn(function()
+				funny[v.Name]:WaitForChild("Handle",99999999)
+				--delay(.15,function()
+					CF(funny[v.Name].Handle,v.Handle)
+					if not v.Handle:FindFirstChildOfClass("SpecialMesh") then
+						Library.RemoveMesh(funny:FindFirstChild(v.Name):FindFirstChild("Handle"))
+					end
+				--end)
+			end)
+		end
+	end
+
+	CF(funny.Torso,dummy.Torso)
+	CF(funny.HumanoidRootPart,dummy.HumanoidRootPart)
+	CF(funny.Head,dummy.Head)
+	CF(funny["Right Arm"],dummy["Right Arm"])
+	CF(funny["Left Arm"],dummy["Left Arm"])
+	CF(funny["Right Leg"],dummy["Right Leg"])
+	CF(funny["Left Leg"],dummy["Left Leg"])
+	print(player.Character.Name)
+	player.Character=dummy
+	workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+
+end
+Reanimate()
+
+local main
+main=player.Chatted:connect(function(buh)
+	if buh==".stop" then
+		mybooty=true
+		--dummy.Parent=game.ServerStorage
+		Library.Notification("Humanoidless.","stopped. say .resume to start")
+	end
+	if buh==".end" then
+		mybooty=false
+		dummy:Remove()
+		disconnect()
+		getgenv().RunningHUMLESS=false
+		main:Disconnect()
+		Library.Notification("Humanoidless.","ended")
+	end
+	if buh==".resume" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+		
+		mybooty=false
+		dummy.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame
+
+		wait(.1)
+		coolness()
+		Library.Notification("Humanoidless.","restarted.")
+	end
+	if buh==".newrig" then
+		if mybooty==true then
+			mybooty=false
+			coolness()
+		end
+		local oldpos = dummy.HumanoidRootPart.CFrame
+		wait()
+		dummy:Remove()
+		dummy=backupDummy:Clone()
+		dummy.HumanoidRootPart.CFrame=oldpos
+		dummy.Parent=workspace
+		dummy.Name="balls"
+		Anims(dummy.Animate)
+		Library.Notification("Humanoidless.","wait till u reset again rq.")
+	end
+	if buh:sub(1,11)==".velsetting" then
+		local setting = buh:sub(13)
+
+		if setting == "none" then
+			NoVel=true
+		elseif setting == "jitterless" then
+			NoVel=false
+		elseif not setting then 
+			NoVel=false
+		end
+	end
+end)
+
+local endbutton = Stend
+local newrigbutton=TextButton_3
+local resumebutton=TextButton_2
+local stopbutton=TextButton
+local stopbutton=TextButton
+
+stopbutton.MouseButton1Down:Connect(function()
+	mybooty=true
+	--dummy.Parent=game.ServerStorage
+	Library.Notification("Humanoidless.","stopped. say .resume to start")
+end)
+
+rj.MouseButton1Down:connect(function()
+	queue_on_teleport(readfile("humanoidless.lua"))
+	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+	
+end)
+
+endbutton.MouseButton1Down:Connect(function()
+	mybooty=false
+	dummy:Remove()
+	disconnect()
+	getgenv().RunningHUMLESS=false
+	main:Disconnect()
+	Library.Notification("Humanoidless.","ended")
+	ScreenGui:Remove()
+end)
+
+resumebutton.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+		
+	mybooty=false
+	dummy.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame
+
+	wait(.1)
+	coolness()
+	Library.Notification("Humanoidless.","restarted.")
+end)
+
+newrigbutton.MouseButton1Down:Connect(function()
+	if mybooty==true then
+		mybooty=false
+		coolness()
+	end
+	local oldpos = dummy.HumanoidRootPart.CFrame
+	wait()
+	dummy:Remove()
+	dummy=backupDummy:Clone()
+	dummy.HumanoidRootPart.CFrame=oldpos
+	dummy.Parent=workspace
+	dummy.Name="balls"
+	Anims(dummy.Animate)
+	Library.Notification("Humanoidless.","wait till u reset again rq.")
+end)
+
+Anims(dummy.Animate)
+
+local DiedEvent
+
+DiedEvent = dummy:FindFirstChildOfClass("Humanoid").Died:Connect(function()
+	mybooty=true
+	disconnect()
+	getgenv().RunningHUMLESS=false
+	main:Disconnect()
+	Library.Notification("Humanoidless.","died")
+	repeat wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+	dummy:Remove()
+	print("Removed")
+	DiedEvent:Disconnect()
+end)
+
+spawn(function()
+	while game.RunService.RenderStepped:wait() do
+		if mybooty then break end
+
+		workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+	end
+end)
+
+while game.RunService.RenderStepped:wait() do
+	if mybooty==true then 
+		disconnect() 
+		print("e")
+		break 
+	end
+	repeat CurrentCFrame=workspace.Camera.CFrame game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name ==game.Players.LocalPlayer.Name
+
+	repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+	repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").Health~=0
+	Reanimate()
+	game.RunService.RenderStepped:wait()
+
+	workspace.Camera.CameraType=Enum.CameraType.Scriptable 
+	game.RunService.RenderStepped:wait()
+	workspace.CurrentCamera.CFrame=CurrentCFrame
+	game.RunService.RenderStepped:wait()
+	workspace.Camera.CameraType=Enum.CameraType.Custom
+end
+
+]])
+
+writefile("humanoidless.lua",redbull)
+
+
+local NoVel=false
+
+game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()
+repeat wait() until game.Players.LocalPlayer
+repeat wait() until game.Players.LocalPlayer.Character
+repeat wait() until game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+
+if RunningHUMLESS then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Main"))().Notification("Humanoidless.","ur currently already running the funny. just say .resume if u havent")
+	return
+end
+
+if _G.typicalcool ~= true then
+    _G.typicalcool = true
+    setfflag("ObeyTheSimLimit", "False")
+    game:GetService("RunService").Stepped:Connect(function()
+       workspace.FallenPartsDestroyHeight = 0/0
+       settings().Physics.AllowSleep = false
+       game:GetService("Players").LocalPlayer.ReplicationFocus = workspace
+       settings().Physics.ThrottleAdjustTime = 6 - math.huge
+        setsimulationradius(math.huge)
+    end)
+    game:GetService("RunService").Heartbeat:Connect(function()
+       workspace.FallenPartsDestroyHeight = 0/0
+       settings().Physics.AllowSleep = false
+       game:GetService("Players").LocalPlayer.ReplicationFocus = workspace
+       settings().Physics.ThrottleAdjustTime = 6 - math.huge
+        setsimulationradius(math.huge)
+    end)
+    print("Net executed")
+end
+
+setfpscap(0)
+
+getgenv().RunningHUMLESS=true
+
+
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Frame_2 = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local Frame_3 = Instance.new("Frame")
+local Frame_4 = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+local TextButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local UIPadding = Instance.new("UIPadding")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextButton_3 = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Stend = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local rj = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local TextLabel_3 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame.BackgroundColor3 = Color3.fromRGB(5, 42, 44)
+Frame.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame.Size = UDim2.new(0, 272, 0, 198)
+
+local UIS = game:GetService("UserInputService")
+function dragify(Frame)
+	dragToggle = nil
+	local dragSpeed = 0
+	dragInput = nil
+	dragStart = nil
+	local dragPos = nil
+	function updateInput(input)
+		local Delta = input.Position - dragStart
+		local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+		game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+	end
+	Frame.InputBegan:Connect(function(input)
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+			dragToggle = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+	end)
+	Frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	game:GetService("UserInputService").InputChanged:Connect(function(input)
+		if input == dragInput and dragToggle then
+			updateInput(input)
+		end
+	end)
+end
+
+dragify(Frame)
+
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = Frame
+
+Frame_2.Parent = Frame
+Frame_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Frame_2.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 255, 255)
+Frame_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+Frame_2.Size = UDim2.new(1, 2, 1, 2)
+Frame_2.ZIndex = 0
+
+UICorner_2.CornerRadius = UDim.new(0, 5)
+UICorner_2.Parent = Frame_2
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(1, 0, 0, 30)
+TextLabel.Font = Enum.Font.Code
+TextLabel.Text = " Humanoidless"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+Frame_3.Parent = TextLabel
+Frame_3.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+Frame_3.BorderSizePixel = 0
+Frame_3.Position = UDim2.new(0, 0, 1, 0)
+Frame_3.Size = UDim2.new(1, 0, 0, 1)
+
+Frame_4.Parent = TextLabel
+Frame_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame_4.BackgroundTransparency = 1.000
+Frame_4.Position = UDim2.new(0, 0, 1.10000002, 0)
+Frame_4.Size = UDim2.new(0, 272, 0, 132)
+
+UIListLayout.Parent = Frame_4
+UIListLayout.Padding = UDim.new(0, 5)
+
+TextButton.Parent = Frame_4
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton.BorderSizePixel = 0
+TextButton.Size = UDim2.new(0, 262, 0, 26)
+TextButton.AutoButtonColor = false
+TextButton.Font = Enum.Font.Code
+TextButton.Text = "Stop"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 14.000
+
+UICorner_3.CornerRadius = UDim.new(0, 5)
+UICorner_3.Parent = TextButton
+
+UIPadding.Parent = Frame_4
+UIPadding.PaddingBottom = UDim.new(0, 5)
+UIPadding.PaddingLeft = UDim.new(0, 5)
+UIPadding.PaddingRight = UDim.new(0, 5)
+UIPadding.PaddingTop = UDim.new(0, 5)
+
+TextButton_2.Parent = Frame_4
+TextButton_2.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton_2.BorderSizePixel = 0
+TextButton_2.Size = UDim2.new(0, 262, 0, 26)
+TextButton_2.AutoButtonColor = false
+TextButton_2.Font = Enum.Font.Code
+TextButton_2.Text = "Resume"
+TextButton_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_2.TextSize = 14.000
+
+UICorner_4.CornerRadius = UDim.new(0, 5)
+UICorner_4.Parent = TextButton_2
+
+TextButton_3.Parent = Frame_4
+TextButton_3.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+TextButton_3.BorderSizePixel = 0
+TextButton_3.Size = UDim2.new(0, 262, 0, 26)
+TextButton_3.AutoButtonColor = false
+TextButton_3.Font = Enum.Font.Code
+TextButton_3.Text = "New Rig"
+TextButton_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton_3.TextSize = 14.000
+
+UICorner_5.CornerRadius = UDim.new(0, 5)
+UICorner_5.Parent = TextButton_3
+
+Stend.Name = "Stend"
+Stend.Parent = Frame_4
+Stend.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+Stend.BorderSizePixel = 0
+Stend.Size = UDim2.new(0, 262, 0, 26)
+Stend.AutoButtonColor = false
+Stend.Font = Enum.Font.Code
+Stend.Text = "End"
+Stend.TextColor3 = Color3.fromRGB(255, 255, 255)
+Stend.TextSize = 14.000
+
+UICorner_6.CornerRadius = UDim.new(0, 5)
+UICorner_6.Parent = Stend
+
+TextLabel_2.Parent = TextLabel
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.0183823537, 0, 6.63333321, 0)
+TextLabel_2.Size = UDim2.new(0, 262, 0, 21)
+TextLabel_2.Font = Enum.Font.Code
+TextLabel_2.Text = "made by typicalusername#1444"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+rj.Name = "rj"
+rj.Parent = TextLabel
+rj.BackgroundColor3 = Color3.fromRGB(0, 62, 62)
+rj.BorderSizePixel = 0
+rj.Position = UDim2.new(0.272058815, 0, 5.4666667, 0)
+rj.Size = UDim2.new(0, 124, 0, 26)
+rj.AutoButtonColor = false
+rj.Font = Enum.Font.Code
+rj.Text = "Rejoin"
+rj.TextColor3 = Color3.fromRGB(255, 255, 255)
+rj.TextSize = 14.000
+
+UICorner_7.CornerRadius = UDim.new(0, 5)
+UICorner_7.Parent = rj
+
+TextLabel_3.Parent = TextLabel
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.753676414, 0, 0.166666508, 0)
+TextLabel_3.Size = UDim2.new(0, 62, 0, 19)
+TextLabel_3.Font = Enum.Font.Code
+TextLabel_3.Text = "FPS: fps"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Scripts:
+
+local function ZJXPL_fake_script() -- TextLabel_3.LocalScript 
+	local script = Instance.new('LocalScript', TextLabel_3)
+
+	game:GetService("RunService").RenderStepped:Connect(function(TimeBetween)
+		local FPS = math.floor(1/TimeBetween)
+		script.Parent.Text = "FPS:"..FPS
+	end)
+end
+coroutine.wrap(ZJXPL_fake_script)()
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Main"))()
+Library.Notification("Humanoidless.","running humanoidless. have fun!\nfalling is easy but it just comes back")
+
+local Anims = loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/Animations"))().R6
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+--Library.Net() -- for stability within the reanimation
+mybooty=false
+local player=game.Players.LocalPlayer
+local coolnesssss=player.Character
+local loops={}
+player.Character.Archivable=true
+
+local camera=workspace.CurrentCamera
+local CurrentCFrame = camera.CFrame
+
+local dummy=player.Character:Clone()
+dummy.Parent=workspace
+dummy.Head.face.Transparency=1
+dummy.Name="balls"
+for i,v in pairs(dummy:GetChildren()) do
+	if v:IsA("Accessory") then
+		v.Handle.Transparency=1
+	end
+	if v:IsA("BasePart") then
+		v.Transparency=1
+	end
+end
+local backupDummy=dummy:Clone()
+
+function disconnect()
+	for i,v in pairs(loops) do
+		v:Disconnect()
+		print("dis")
+	end
+	loops=nil
+	loops={}
+end
+
+function coolness()
+	spawn(function()
+		while game.RunService.RenderStepped:wait() do
+			if mybooty then break end
+
+			workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+		end
+	end)
+	while game.RunService.RenderStepped:wait() do
+		if mybooty==true then 
+			disconnect() 
+			print("e")
+			break 
+		end
+		repeat CurrentCFrame=workspace.Camera.CFrame game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name ==game.Players.LocalPlayer.Name
+
+		repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+		repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+		Reanimate()
+		game.RunService.RenderStepped:wait()
+
+		workspace.Camera.CameraType=Enum.CameraType.Scriptable 
+		game.RunService.RenderStepped:wait()
+		workspace.CurrentCamera.CFrame=CurrentCFrame
+		game.RunService.RenderStepped:wait()
+		workspace.Camera.CameraType=Enum.CameraType.Custom
+	end
+end
+
+function CameraSet()
+	if player.Character.Name~=player.Name then
+		original_CF = camera.CFrame
+		print("cool")
+	end
+end
+-- Vector3.new(Dummy["HumanoidRootPart"].CFrame.LookVector.X * 40, Dummy["HumanoidRootPart"].AssemblyLinearVelocity.Y * 5, Dummy["HumanoidRootPart"].CFrame.LookVector.Z * 40)
+function Reanimate()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+
+	disconnect()
+	local funny=player.Character
+	player.Character.Humanoid:remove()
+	Library.Noclip(player.Character)
+	funny.Parent=dummy
+
+	function CF(Instance_,Instance2)
+		Instance_:BreakJoints()
+		local pjcrenshaw
+		--table.insert(loops,
+			pjcrenshaw=game.RunService.Heartbeat:Connect(function()
+				if not Instance_ then
+					pjcrenshaw:Disconnect()
+				end
+				Instance_.CFrame = Instance2.CFrame
+					Instance_.Velocity=Vector3.new()
+			end)
+	end
+
+	for i,v in pairs(dummy:GetChildren()) do
+		if v:IsA("Accessory") then
+			spawn(function()
+				funny[v.Name]:WaitForChild("Handle",99999999)
+				--delay(.15,function()
+					CF(funny[v.Name].Handle,v.Handle)
+					if not v.Handle:FindFirstChildOfClass("SpecialMesh") then
+						Library.RemoveMesh(funny:FindFirstChild(v.Name):FindFirstChild("Handle"))
+					end
+				--end)
+			end)
+		end
+	end
+
+	CF(funny.Torso,dummy.Torso)
+	CF(funny.HumanoidRootPart,dummy.HumanoidRootPart)
+	CF(funny.Head,dummy.Head)
+	CF(funny["Right Arm"],dummy["Right Arm"])
+	CF(funny["Left Arm"],dummy["Left Arm"])
+	CF(funny["Right Leg"],dummy["Right Leg"])
+	CF(funny["Left Leg"],dummy["Left Leg"])
+	print(player.Character.Name)
+	player.Character=dummy
+	workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+
+end
+Reanimate()
+
+local main
+main=player.Chatted:connect(function(buh)
+	if buh==".stop" then
+		mybooty=true
+		--dummy.Parent=game.ServerStorage
+		Library.Notification("Humanoidless.","stopped. say .resume to start")
+	end
+	if buh==".end" then
+		mybooty=false
+		dummy:Remove()
+		disconnect()
+		getgenv().RunningHUMLESS=false
+		main:Disconnect()
+		Library.Notification("Humanoidless.","ended")
+	end
+	if buh==".resume" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+		
+		mybooty=false
+		dummy.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame
+
+		wait(.1)
+		coolness()
+		Library.Notification("Humanoidless.","restarted.")
+	end
+	if buh==".newrig" then
+		if mybooty==true then
+			mybooty=false
+			coolness()
+		end
+		local oldpos = dummy.HumanoidRootPart.CFrame
+		wait()
+		dummy:Remove()
+		dummy=backupDummy:Clone()
+		dummy.HumanoidRootPart.CFrame=oldpos
+		dummy.Parent=workspace
+		dummy.Name="balls"
+		Anims(dummy.Animate)
+		Library.Notification("Humanoidless.","wait till u reset again rq.")
+	end
+	if buh:sub(1,11)==".velsetting" then
+		local setting = buh:sub(13)
+
+		if setting == "none" then
+			NoVel=true
+		elseif setting == "jitterless" then
+			NoVel=false
+		elseif not setting then 
+			NoVel=false
+		end
+	end
+end)
+
+local endbutton = Stend
+local newrigbutton=TextButton_3
+local resumebutton=TextButton_2
+local stopbutton=TextButton
+local stopbutton=TextButton
+
+stopbutton.MouseButton1Down:Connect(function()
+	mybooty=true
+	--dummy.Parent=game.ServerStorage
+	Library.Notification("Humanoidless.","stopped. say .resume to start")
+end)
+
+rj.MouseButton1Down:connect(function()
+	queue_on_teleport(readfile("humanoidless.lua"))
+	
+	game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+endbutton.MouseButton1Down:Connect(function()
+	mybooty=false
+	dummy:Remove()
+	disconnect()
+	getgenv().RunningHUMLESS=false
+	main:Disconnect()
+	Library.Notification("Humanoidless.","ended")
+	ScreenGui:Remove()
+end)
+
+resumebutton.MouseButton1Down:Connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/TypicallyAUser/TypicalsConvertingLibrary/main/renameallhatclones"))()
+		
+	mybooty=false
+	dummy.HumanoidRootPart.CFrame=player.Character.HumanoidRootPart.CFrame
+
+	wait(.1)
+	coolness()
+	Library.Notification("Humanoidless.","restarted.")
+end)
+
+newrigbutton.MouseButton1Down:Connect(function()
+	if mybooty==true then
+		mybooty=false
+		coolness()
+	end
+	local oldpos = dummy.HumanoidRootPart.CFrame
+	wait()
+	dummy:Remove()
+	dummy=backupDummy:Clone()
+	dummy.HumanoidRootPart.CFrame=oldpos
+	dummy.Parent=workspace
+	dummy.Name="balls"
+	Anims(dummy.Animate)
+	Library.Notification("Humanoidless.","wait till u reset again rq.")
+end)
+
+Anims(dummy.Animate)
+
+local DiedEvent
+
+DiedEvent = dummy:FindFirstChildOfClass("Humanoid").Died:Connect(function()
+	mybooty=true
+	disconnect()
+	getgenv().RunningHUMLESS=false
+	main:Disconnect()
+	Library.Notification("Humanoidless.","died")
+	repeat wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+	dummy:Remove()
+	print("Removed")
+	DiedEvent:Disconnect()
+end)
+
+spawn(function()
+	while game.RunService.RenderStepped:wait() do
+		if mybooty then break end
+
+		workspace.Camera.CameraSubject=dummy:FindFirstChildOfClass("Humanoid")
+	end
+end)
+
+while game.RunService.RenderStepped:wait() do
+	if mybooty==true then 
+		disconnect() 
+		print("e")
+		break 
+	end
+	repeat CurrentCFrame=workspace.Camera.CFrame game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name ==game.Players.LocalPlayer.Name
+
+	repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character.Name == game.Players.LocalPlayer.Name
+	repeat game.RunService.RenderStepped:wait() until game.Players.LocalPlayer.Character:FindFirstChild("Humanoid").Health~=0
+	Reanimate()
+	game.RunService.RenderStepped:wait()
+
+	workspace.Camera.CameraType=Enum.CameraType.Scriptable 
+	game.RunService.RenderStepped:wait()
+	workspace.CurrentCamera.CFrame=CurrentCFrame
+	game.RunService.RenderStepped:wait()
+	workspace.Camera.CameraType=Enum.CameraType.Custom
+end
